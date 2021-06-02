@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,5 +25,11 @@ public class MainActivity extends AppCompatActivity {
         myAdapter = new MyAdapter(MainActivity.this);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         recyclerView.setAdapter(myAdapter);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }

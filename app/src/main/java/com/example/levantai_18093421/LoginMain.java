@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,6 +22,7 @@ public class LoginMain extends AppCompatActivity {
     EditText editEmail, editPassWord;
     Button btnSignIn;
     FirebaseAuth auth;
+    TextView txtExit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,10 @@ public class LoginMain extends AppCompatActivity {
                 SignIn();
             }
         });
+
+    }
+    private  void exit_click(){
+        finish();
     }
     private void SignIn()
     {

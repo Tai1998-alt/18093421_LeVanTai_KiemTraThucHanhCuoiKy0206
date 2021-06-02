@@ -23,5 +23,21 @@ public class Manager extends AppCompatActivity {
                 startActivity(new Intent(Manager.this, MainActivity.class));
             }
         });
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("product", new Product());
+                Intent intent = new Intent(Manager.this, ProductForm.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }

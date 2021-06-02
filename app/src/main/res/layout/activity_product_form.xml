@@ -11,8 +11,6 @@
         android:id="@+id/txtUpdate2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
         android:text="PRODUCT"
@@ -21,6 +19,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/txtUpdate"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toEndOf="@+id/txtUpdate"
         app:layout_constraintTop_toTopOf="@+id/txtUpdate"
         app:layout_constraintVertical_bias="0.0" />
@@ -102,15 +101,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="68dp"
-        android:text="UPDATE"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="35dp"
+        android:text="ADD"
         android:textColor="#100F0F"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editType"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.56" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

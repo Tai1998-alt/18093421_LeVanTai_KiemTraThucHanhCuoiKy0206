@@ -46,9 +46,9 @@ public class ProductForm extends AppCompatActivity {
         }
         if(product.getId()==0){
             txtUpdate.setText("ADD");
-            btnSave.setText("ADD");
+            btnSave.setText("CREATE");
         } else {
-            txtUpdate.setText("UPDATE");
+            txtUpdate.setText("UPDATE"+"  ");
             btnSave.setText("SAVE");
             }
 
@@ -60,10 +60,33 @@ public class ProductForm extends AppCompatActivity {
                 } else updateProduct();
             }
         });
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
       private  void addProduct(){
-
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, url,response -> {
+                startActivity(new Intent(ProductForm.this, MainActivity.class));
+                finish();
+            }, error -> {
+                error.printStackTrace();
+            }){
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String,String> map = new HashMap<>();
+                    map.put("type",editType.getText().toString().trim());
+                    map.put("price",editPrice.getText().toString().trim());
+                    map.put("country",editCountry.getText().toString().trim());
+                    return map;
+                }
+            };
+          stringRequest.setRetryPolicy(new DefaultRetryPolicy(0,1,1));
+          RequestQueue requestQueue = Volley.newRequestQueue(ProductForm.this);
+          requestQueue.add(stringRequest);
       }
       private  void updateProduct(){
           StringRequest stringRequest = new StringRequest(Request.Method.PUT, url+"/"+product.getId(), response -> {
