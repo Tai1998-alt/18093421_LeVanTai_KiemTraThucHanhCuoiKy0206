@@ -4,6 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D6C529"
     tools:context=".Manager">
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="305dp"
+        android:layout_height="77dp"
+        android:layout_marginBottom="68dp"
+        android:text="ADD PRODUCT"
+        android:textColor="#FFFFFF"
+        android:textSize="19sp"
+        app:backgroundTint="#0B0A0A"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogout"
+        app:layout_constraintEnd_toEndOf="@+id/btnLogout"
+        app:layout_constraintStart_toStartOf="@+id/btnLogout" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="157dp"
+        android:layout_height="77dp"
+        android:layout_marginBottom="28dp"
+        android:text="LOGOUT"
+        android:textColor="#FFFFFF"
+        android:textSize="19sp"
+        app:backgroundTint="#0B0A0A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="411dp"
+        android:layout_height="138dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginBottom="100dp"
+        android:background="#C8DA1C"
+        app:layout_constraintBottom_toTopOf="@+id/btnShow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MANAGER"
+        android:textColor="#0E0E0E"
+        android:textSize="45sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <Button
+        android:id="@+id/btnShow"
+        android:layout_width="305dp"
+        android:layout_height="77dp"
+        android:layout_marginBottom="40dp"
+        android:text="SHOW INFORMATION"
+        android:textColor="#FFFFFF"
+        android:textSize="19sp"
+        app:backgroundTint="#0B0A0A"
+        app:layout_constraintBottom_toTopOf="@+id/btnAdd"
+        app:layout_constraintEnd_toEndOf="@+id/btnAdd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnAdd" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
