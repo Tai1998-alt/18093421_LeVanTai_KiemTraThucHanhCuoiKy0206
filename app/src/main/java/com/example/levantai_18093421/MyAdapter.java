@@ -3,6 +3,8 @@ package com.example.levantai_18093421;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,6 +73,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
                                     requestQueue.add(stringRequest);
                                 }
                             }).setNegativeButton("NO",null).show();
+            }
+        });
+
+        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("product", product);
+                Intent intent = new Intent(context, ProductForm.class);
+                intent.putExtras(bundle);
+                context.startActivity(intent);
             }
         });
     }
