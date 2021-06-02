@@ -2,19 +2,23 @@ package com.example.levantai_18093421;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
@@ -49,7 +53,24 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                    new AlertDialog.Builder(context)
+                            .setTitle("Thông báo")
+                            .setMessage("Bạn Có muốn xóa không?")
+                            .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    StringRequest stringRequest = new StringRequest(Request.Method.DELETE, url+"/"+product.getId(),
+                                            response -> {
+                                                Toast.makeText(context,"Xóa thành công", Toast.LENGTH_SHORT).show();
+                                                update();
+                                            }, error -> {
+                                        error.printStackTrace();
+                                    });
+                                    stringRequest.setRetryPolicy(new DefaultRetryPolicy(0,1,1));
+                                    RequestQueue requestQueue = Volley.newRequestQueue(context);
+                                    requestQueue.add(stringRequest);
+                                }
+                            }).setNegativeButton("NO",null).show();
             }
         });
     }
