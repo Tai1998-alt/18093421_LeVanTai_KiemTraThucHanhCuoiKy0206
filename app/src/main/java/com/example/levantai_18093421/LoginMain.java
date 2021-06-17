@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginMain extends AppCompatActivity {
 
     EditText editEmail, editPassWord;
-    Button btnSignIn;
+    Button btnSignIn, btnRegister;
     FirebaseAuth auth;
     TextView txtExit;
     @Override
@@ -30,11 +30,18 @@ public class LoginMain extends AppCompatActivity {
         editEmail = findViewById(R.id.editEmail);
         editPassWord = findViewById(R.id.editPassWord);
         btnSignIn = findViewById(R.id.btnSignIn);
+        btnRegister = findViewById(R.id.btnRegister);
         auth = FirebaseAuth.getInstance();
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SignIn();
+            }
+        });
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginMain.this, Register.class));
             }
         });
 
